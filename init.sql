@@ -24,7 +24,6 @@ create table if not exists author_genre(
 create table if not exists album (
     id serial primary key,
     "name" varchar(250) not null unique,
-    author_id int references author(id),
     created_at timestamp not null default now(),
     updated_at timestamp not null default now(),
     is_deleted boolean not null default false
