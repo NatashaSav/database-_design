@@ -24,7 +24,7 @@ create table if not exists author_genre(
 create table if not exists album (
     id serial primary key,
     "name" varchar(250) not null unique,
-    author_id int references author(id),
+    year int,
     created_at timestamp not null default now(),
     updated_at timestamp not null default now(),
     is_deleted boolean not null default false
@@ -51,7 +51,10 @@ create table if not exists track (
 create table if not exists collection (
     id serial primary key,
     "name" varchar(200),
-    creation_year varchar(100)
+    creation_year timestamp not null default now(),
+    created_at timestamp not null default now(),
+    updated_at timestamp not null default now(),
+    is_deleted boolean not null default false
 )
 
 create table if not exists track_collection (
